@@ -7,79 +7,110 @@ body {
   font-family: "Source Code Pro", monospace;
   overflow: hidden;
   background-color: midnightblue;
-  height: 100vh;
-  margin: 0rem;
+  height: 100%;
+  margin: 0;
   overflow: hidden;
   color: white;
+}
 
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   row-gap: 10px;
+  margin: 10px;
 }
+
 .content {
   padding: 20px;
   border: 5px solid white;
-  margin: 0 25%;
 }
+
 * {
+  -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
+
 .navigation {
   background: transparent;
-
   height: 50px;
-
-  margin: 0 25%;
-
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: row;
   flex-direction: row;
   column-gap: 10px;
   justify-content: space-around;
 }
+
 .nav-button {
   background-color: lightseagreen;
   border: 5px solid white;
-  flex: 1;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   padding: 10px;
   text-align: center;
 }
+
 .nav-button:hover {
   background-color: seagreen;
 }
 
 #blob {
-  height: 34vmax;
-  aspect-ratio: 1;
+  height: 34vmin;
+  width: 34vmin;
   position: absolute;
   left: 50%;
   top: 50%;
-  translate: -50% -50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: linear-gradient(turquoise, slateblue);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(turquoise),
+    to(slateblue)
+  );
+  background: linear-gradient(to bottom right, turquoise, slateblue);
   color: turquoise;
+  -webkit-animation: rotate 20s steps(100) infinite;
   animation: rotate 20s steps(100) infinite;
   opacity: 0.8;
   z-index: -3;
 }
+
 #blur {
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   z-index: -2;
-  backdrop-filter: blur(12vmax);
+  -webkit-backdrop-filter: blur(12vmin);
+  backdrop-filter: blur(12vmin);
 }
-@keyframes rotate {
+
+@-webkit-keyframes rotate {
   from {
-    rotate: 0deg;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   50% {
-    scale: 1 1.2;
+    -webkit-transform: scale(1, 1.2);
+    transform: scale(1, 1.2);
   }
+
   75% {
-    scale: 1.2 1;
+    -webkit-transform: scale(1.2, 1);
+    transform: scale(1.2, 1);
   }
+
   to {
     rotate: 360deg;
   }
