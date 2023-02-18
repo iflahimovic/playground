@@ -1,4 +1,19 @@
-body{
-    background-color: black;
-    color: white;
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: midnightblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+* {
+  transition: all 200ms ease-in-out;
+}
+.text {
+  width: 300px;
+  height: 300px;
+
+  padding: 20px;
+
+  background-color: darkslateblue;
+  border: 5px solid slateblue;
 }
